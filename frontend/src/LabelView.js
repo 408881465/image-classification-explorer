@@ -154,28 +154,28 @@ class LabelView extends React.Component {
                 onClick={handleShow} 
                 disabled={Object.keys(this.state.imageMap).length > 0 && Math.min(...Object.keys(this.state.imageMap).map(k => this.state.imageMap[k].length)) > 0 ? false : true}
             >
-                Custom
+                自定义
             </Button>
               <Link to={{ pathname: "/test", state: {imageMap: this.state.imageMap, loadedModel: this.state.loadedModel}}}>
                   <Button variant="dark"
                           size="sm"
                           className="train-button"
                           disabled={Object.keys(this.state.imageMap).length > 0 && Math.min(...Object.keys(this.state.imageMap).map(k => this.state.imageMap[k].length)) > 0 ? false : true}>
-                      Train
+                      训练
                   </Button>
               </Link>
             <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>Customize Hyperparameters</Modal.Title>
+                    <Modal.Title>自定义超参数</Modal.Title>
                 </Modal.Header>
                 <Modal.Body></Modal.Body>
                 <Form>
                     <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>Learning Rate</Form.Label>
+                        <Form.Label>学习率</Form.Label>
                         <Form.Control type="number" defaultValue="0.0001" step=".0001" />
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlSelect1">
-                        <Form.Label>Optimizer</Form.Label>
+                        <Form.Label>优化器</Form.Label>
                         <Form.Control as="select">
                         <option>Adam</option>
                         <option>SGD</option>
@@ -184,20 +184,20 @@ class LabelView extends React.Component {
                         </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlInput2">
-                        <Form.Label>Epochs</Form.Label>
+                        <Form.Label>轮数</Form.Label>
                         <Form.Control type="number" defaultValue="20" step="1" />
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlInput2">
-                        <Form.Label>Training Data Fraction</Form.Label>
+                        <Form.Label>训练数据比例</Form.Label>
                         <Form.Control type="number" defaultValue=".4" step=".1" />
                     </Form.Group>
                 </Form>
                 <Modal.Footer>
                 <Button variant="danger" onClick={handleClose}>
-                    Close
+                    关闭
                 </Button>
                 <Link to={{ pathname: "/test", state: {imageMap: this.state.imageMap, loadedModel: this.state.loadedModel}}}>
-                    <Button variant="warning">  Train Model </Button>
+                    <Button variant="warning">训练模型</Button>
                 </Link>
                 </Modal.Footer>
             </Modal>
@@ -209,20 +209,18 @@ class LabelView extends React.Component {
         return (
             <header className="App-header">
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/">Personal Image Classifier</Navbar.Brand>
+                    <Navbar.Brand href="/">自定义图像分类器</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Link to={{ pathname: "/", state: {imageMap: this.state.imageMap}}}>
-                            Train
+                            训练
                         </Link>
                         <Link to={{ pathname: "/test", state: {imageMap: this.state.imageMap}}} className={Object.keys(this.state.imageMap).length > 0 && Math.min(...Object.keys(this.state.imageMap).map(k => this.state.imageMap[k].length)) > 1 ? "": "disable-link"}>
-                            Test
+                            测试
                         </Link>
                     </Nav>
                 </Navbar>
-                <div className="page-title">Training Page</div>
-                <p className="page-info">To get started, click the plus icon to add a classification and then use the "Capture" button or drag images into the capture box to add images to the selected
-                        classification. You can also upload previously generated data and models using the
-                        buttons below. When done, hit "Train"
+                <div className="page-title">训练页面</div>
+                <p className="page-info">点击以下+加号图标添加一个分类，然后点击采集图像按钮或选择本地图片拖动到分类框中，你也可以通过以下按钮上传之前生成的模型或图像数据集。完成后点击“训练”按钮。
                 </p>
                 <div className="view-all">
                 <Cam 
@@ -239,7 +237,7 @@ class LabelView extends React.Component {
                             overlay={
                                 <Popover>
                                     <Popover.Title 
-                                        as="h3">{"Create New Label"}</Popover.Title>
+                                        as="h3">{"新建分类"}</Popover.Title>
                                     <Popover.Content>
                                     <input 
                                         type="text" 
@@ -269,9 +267,9 @@ class LabelView extends React.Component {
                 </div>
             </div>
             <div>
-                <Button variant={"dark"} className="train-button" onClick={this.uploadModel}>Upload Model</Button>
+                <Button variant={"dark"} className="train-button" onClick={this.uploadModel}>上传模型</Button>
                 <input type="file" id="modelFile" onInput={this.handleModel} ref={this.modelInputRef} style={{display: "none"}}/>
-                <Button variant={"dark"} className="train-button" onClick={this.uploadData}>Upload Training Data</Button>
+                <Button variant={"dark"} className="train-button" onClick={this.uploadData}>上传数据集</Button>
                 <input type="file" id="dataFile" onInput={this.handleData} ref={this.dataInputRef} style={{display: "none"}}/>
             </div>
             </header>
