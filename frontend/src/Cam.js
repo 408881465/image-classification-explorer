@@ -114,10 +114,10 @@ class Cam extends React.Component {
     return (
       <div className="record-box">
         {!this.props.testing? <div className="recording-for-dropdown-wrapper">
-          <p className="record-p">CAPTURING FOR: &nbsp;</p>
+          <p className="record-p">采集图像: &nbsp;</p>
           <DropdownButton 
             disabled={this.props.allLabels.length === 0}
-            title={this.props.allLabels.length === 0 ? "No Labels" : this.state.currentLabel} 
+            title={this.props.allLabels.length === 0 ? "无分类" : this.state.currentLabel} 
             size="sm" 
             variant="outline-light">
               {this.props.allLabels.map(l => {
@@ -129,12 +129,12 @@ class Cam extends React.Component {
         </div> : <div/>}
         <video hidden={this.state && this.state.working ? '' : 'hidden'} autoPlay playsInline muted id="webcam" width="100" height="100" onLoadedData={this.loadedData} ref={this.webcam}></video>
         <div id="no-webcam" hidden={this.state && this.state.working ? 'hidden' : ''}>
-          No webcam found. <br/>
-          To use this interface, use a device with a webcam.
+          无摄像头. <br/>
+          使用这个界面需要网络摄像头.
         </div>
         <div className="record-and-countdown">
           <Button onClick={this.capture} disabled={this.props.allLabels.length === 0} variant= "outline-light" className="record-button">
-            {"Capture"}
+            {"拍照"}
           </Button>
         </div>
       </div>
