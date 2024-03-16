@@ -49,7 +49,7 @@ class Label extends React.Component {
                 <div className="label-box">
                     <div className="title-box">
                         <p className="name-p">{this.props.name}</p>
-                        <p className="count-p">{this.props.images.length + (this.props.images.length === 1 ? " example" : " examples")}</p>
+                        <p className="count-p">{this.props.images.length + (this.props.images.length === 1 ? " example" : " 个样本")}</p>
                     </div>
                     <div className="vertical-line">
                         <img src={arrow} alt="remove label" width={10} style={{margin: "auto", cursor:"pointer"}} onClick={() => this.props.handleRemoveLabel(this.props.name)}></img>
