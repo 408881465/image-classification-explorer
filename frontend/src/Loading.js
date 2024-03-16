@@ -63,7 +63,7 @@ class Loading extends React.Component {
         this.setState({message: "Loading mobilenet...", progress: 10})
 
         const model = await tf.loadLayersModel(
-            "https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json"
+            "https://www.sjaiedu.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json"
         );
         console.log('Successfully loaded model');
 
